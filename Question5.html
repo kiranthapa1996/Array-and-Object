@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const student = {
+        id: 1,
+        firstName: 'Kiran',
+        lastName: 'Thapa',
+        age: 22,
+        grade: 'A',
+        subject: "Computer Science"
+    };
+
+    for (let key in student) {
+        if (student.hasOwnProperty(key)) {
+            console.log(`${key}: ${student[key]}`);
+        }
+    }
+
+    let fullName = '';
+    for (let key in student) {
+        if (key === 'firstName' || key === 'lastName') {
+            fullName += student[key] + ' ';
+        }
+    }
+    console.log(`Full Name: ${fullName.trim()}`);
+
+    for (let key in student) {
+        if (key === 'grade') {
+            student[key] = 'A+';
+        }
+    }
+    console.log(`Updated Grade: ${student.grade}`);
+    let propertyCount = 0;
+    for (let key in student) {
+        propertyCount++;
+    }
+    console.log(`Total number of properties: ${propertyCount}`);
+
+</script>
+
+</html>

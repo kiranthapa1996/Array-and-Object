@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let students = [
+            { id: 1, firstName: 'Aman', lastName: 'Mehta', age: 20, grade: 'A' },
+            { id: 2, firstName: 'Gracy', lastName: 'Singh', age: 22, grade: 'B' },
+            { id: 3, firstName: 'Subham', lastName: 'Vegad', age: 21, grade: 'D' },
+            { id: 4, firstName: 'Mike', lastName: 'Tyson', age: 23, grade: 'C' }
+        ];
+
+        // a. Add a Student
+        function addStudent(newStudent) {
+            students.push(newStudent);
+            console.log('Student added successfully.');
+        }
+        function updateStudent(id, updatedInfo) {
+            const studentIndex = students.findIndex(student => student.id === id);
+            if (studentIndex !== -1) {
+                students[studentIndex] = { ...students[studentIndex], ...updatedInfo };
+                console.log(`Student with id ${id} updated successfully.`);
+            } else {
+                console.log('Student not found.');
+            }
+        }
+
+        // c. Delete a Student
+        function deleteStudent(id) {
+            const initialLength = students.length;
+            students = students.filter(student => student.id !== id);
+            if (students.length !== initialLength) {
+                console.log(`Student with id ${id} deleted successfully.`);
+            } else {
+                console.log('Student not found.');
+            }
+        }
+
+        // d. List All Students
+        function listAllStudents() {
+            console.log('Listing all students:');
+            students.forEach(student => {
+                console.log(student);
+            });
+        }
+
+        // e. Find Students by Grade
+        function findStudentsByGrade(grade) {
+            const studentsByGrade = students.filter(student => student.grade === grade);
+            console.log(`Students with grade ${grade}:`);
+            console.log(studentsByGrade);
+        }
+
+        // f. Calculate Average Age
+        function calculateAverageAge() {
+            const totalAge = students.reduce((sum, student) => sum + student.age, 0);
+            const averageAge = totalAge / students.length;
+            console.log(`Average age of students: ${averageAge.toFixed(2)}`);
+        }
+
+        // Example usage:
+
+        // Adding a new student
+        addStudent({ id: 5, firstName: 'Alice', lastName: 'Williams', age: 24, grade: 'B' });
+
+        // Updating a student's information
+        updateStudent(3, { age: 22, grade: 'A+' });
+
+        // Deleting a student
+        deleteStudent(2);
+
+        // Listing all students
+        listAllStudents();
+
+        // Finding students with grade 'A'
+        findStudentsByGrade('A');
+
+        // Calculating average age of students
+        calculateAverageAge();
+
+    </script>
+</body>
+
+</html>

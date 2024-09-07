@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24];
+    const sortedAges = ages.slice().sort((a, b) => a - b); 
+    const minAge = sortedAges[0];
+    const maxAge = sortedAges[sortedAges.length - 1];
+
+    console.log(`Min age: ${minAge}, Max age: ${maxAge}`);
+
+    const middleIndex = Math.floor(sortedAges.length / 2);
+    let medianAge;
+    if (sortedAges.length % 2 === 0) {
+        medianAge = (sortedAges[middleIndex - 1] + sortedAges[middleIndex]) / 2;
+    } else {
+        medianAge = sortedAges[middleIndex];
+    }
+
+    console.log(`Median age: ${medianAge}`);
+    const totalAges = sortedAges.reduce((sum, age) => sum + age, 0);
+    const averageAge = totalAges / sortedAges.length;
+
+    console.log(`Average age: ${averageAge}`);
+    const ageRange = maxAge - minAge;
+
+    console.log(`Age range: ${ageRange}`);
+
+    const minDiff = Math.abs(minAge - averageAge);
+    const maxDiff = Math.abs(maxAge - averageAge);
+
+    console.log(`Difference between min and average: ${minDiff}`);
+    console.log(`Difference between max and average: ${maxDiff}`);
+
+</script>
+
+</html>
